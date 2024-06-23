@@ -40,7 +40,12 @@ if selected == 'Heart Disease Prediction':
         age = st.text_input('Age')
 
     with col2:
-        sex = st.text_input('Sex')
+        sex = st.selectbox("Sex",("Male", "Female")
+                           )
+        if sex =="Male":
+            sex = 1;
+        else:
+            sex= 0;
 
     with col3:
         cp = st.text_input('Chest Pain types')
@@ -89,7 +94,7 @@ if selected == 'Heart Disease Prediction':
         heart_prediction = heart_disease_model.predict([user_input])
 
         if heart_prediction[0] == 1:
-            heart_diagnosis = 'The person is having heart disease'
+            heart_diagnosis = 'The person has the possibility of developing a heart disease'
         else:
             heart_diagnosis = 'The person does not have any heart disease'
 
